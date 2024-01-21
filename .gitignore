@@ -1,0 +1,4 @@
+服务部署/鼎桥监控/prometheus/data/wal/00000000
+服务部署/鼎桥监控/prometheus/data/queries.active
+服务部署/鼎桥监控/prometheus/data/lock
+服务部署/鼎桥监控/grafana/data/grafana.db
