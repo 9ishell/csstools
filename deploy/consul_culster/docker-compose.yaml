@@ -1,0 +1,43 @@
+version: '3'
+services:
+  consul-server:
+    image: consul
+    container_name: consul-server
+    command: agent -server -bootstrap-expect=1 -ui -client=0.0.0.0
+    ports:
+      - "8500:8500"
+    networks:
+      - consul-network
+
+  consul-node1:
+    image: consul
+    container_name: consul-node1
+    command: agent -server -join=consul-server -client=0.0.0.0
+    networks:
+      - consul-network
+
+  consul-node2:
+    image: consul
+    container_name: consul-node2
+    command: agent -server -join=consul-server -client=0.0.0.0
+    networks:
+      - consul-network
+
+  consul-node3:
+    image: consul
+    container_name: consul-node3
+    command: agent -server -join=consul-server -client=0.0.0.0
+    networks:
+      - consul-network
+
+  consul-ui:
+    image: consul
+    container_name: consul-ui
+    command: agent -ui -client=0.0.0.0
+    ports:
+      - "8080:8080"
+    networks:
+      - consul-network
+
+networks:
+  consul-network:

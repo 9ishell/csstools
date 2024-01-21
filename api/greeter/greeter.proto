@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package greeter;
+
+option go_package = "github.com/9ishell/csstools/service/greeter";
+
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloResponse) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string greeting = 1;
+}
+
